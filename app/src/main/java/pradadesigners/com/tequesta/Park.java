@@ -14,6 +14,7 @@ public class Park {
     private String mLastUpdated;
     private String mComment;
 
+
     public Park (String parkHTML) {
 
         Pattern pattern = Pattern.compile("<td((\\S|\\s)*?)</td>");

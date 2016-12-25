@@ -1,10 +1,12 @@
 package pradadesigners.com.tequesta;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,8 +23,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-
-    private String TAG = "Tequesta";
 
     @BindView(R.id.parkList) ListView parkList;
 
@@ -49,7 +49,20 @@ public class MainActivity extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+
                 e.printStackTrace();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Context context = getApplicationContext();
+                        CharSequence text = "Error requesting data.  Check your internet connection.";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+                });
             }
 
             @Override
