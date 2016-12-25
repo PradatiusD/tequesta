@@ -3,7 +3,6 @@ package pradadesigners.com.tequesta;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -75,13 +74,10 @@ public class MainActivity extends AppCompatActivity {
 
                 final ArrayAdapter<Park> adapter = new ArrayAdapter<>(activity, R.layout.activity_list_view, R.id.label, parks);
 
-                final String status = parks.get(0).toString();
-
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         parkList.setAdapter(adapter);
-                        Log.d(TAG, "status: " + status);
                     }
                 });
             }
