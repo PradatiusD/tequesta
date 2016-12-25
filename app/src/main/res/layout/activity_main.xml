@@ -16,6 +16,6 @@
         android:layout_height="wrap_content"
         android:text="Open"
         android:layout_centerHorizontal="true"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:id="@+id/statusText"/>
 </RelativeLayout>
