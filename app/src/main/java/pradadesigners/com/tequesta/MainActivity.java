@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ import okhttp3.Response;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.parkList) ListView parkList;
+    @BindView(R.id.refreshButton) Button refreshButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +36,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        requestParkSiteHTML();
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                requestParkSiteHTML();
+            }
+        });
     }
 
 
     private void requestParkSiteHTML() {
+        parkList.setAdapter(new ArrayAdapter<>(this, R.layout.activity_list_view, R.id.label, new ArrayList<Park>()));
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()

@@ -12,10 +12,19 @@
     tools:context="pradadesigners.com.tequesta.MainActivity">
 
 
+    <Button
+        android:text="Check Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/refreshButton"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/parkList"/>
+        android:id="@+id/parkList"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/refreshButton"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
