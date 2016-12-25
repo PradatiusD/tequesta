@@ -79,7 +79,7 @@ public class Park {
 
     @Override
     public String toString () {
-        return mName + "  " + mStatus + " " + mLastUpdated + " " + mComment;
+        return mName + "\n" + mStatus + "\n" + mLastUpdated + "\n" + mComment;
     }
 
 

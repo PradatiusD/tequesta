@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("http://www.westonfl.org/Departments/ParksAndRecreation/ParksStatus.aspx")
+                .url(getString(R.string.park_website_url))
                 .build();
 
         final Activity activity = this;
