@@ -1,9 +1,11 @@
 package pradadesigners.com.tequesta;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String TAG = "Tequesta";
 
-    @BindView(R.id.statusText) TextView statusText;
+    @BindView(R.id.parkList) ListView parkList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         Request request = new Request.Builder()
                 .url("http://www.westonfl.org/Departments/ParksAndRecreation/ParksStatus.aspx")
                 .build();
+
+        final Activity activity = this;
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -69,13 +73,15 @@ public class MainActivity extends AppCompatActivity {
                     parks.add(park);
                 }
 
+                final ArrayAdapter<Park> adapter = new ArrayAdapter<>(activity, R.layout.activity_list_view, R.id.label, parks);
+
                 final String status = parks.get(0).toString();
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        parkList.setAdapter(adapter);
                         Log.d(TAG, "status: " + status);
-                        statusText.setText(status);
                     }
                 });
             }
