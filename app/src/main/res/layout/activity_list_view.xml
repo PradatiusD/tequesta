@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/label"
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:padding="10dip"
-          android:textSize="16dip"
-          android:textStyle="bold"
-          android:textColor="@color/colorWhite">
-</TextView>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+    >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/statusIcon"
+        android:layout_centerVertical="true">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/parkName"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textSize="16dip"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:layout_toRightOf="@id/statusIcon"
+        android:paddingLeft="10dp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/parkStatusText"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textSize="12dip"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/parkName"
+        android:layout_toRightOf="@id/statusIcon"
+        android:paddingLeft="10dp"
+        >
+    </TextView>
+
+
+</RelativeLayout>
+

@@ -49,6 +49,10 @@ public class Park {
         return mStatus;
     }
 
+    public boolean isOpen() {
+        return mStatus.equals("open");
+    }
+
     public void setStatus(String status) {
         mStatus = status;
     }
@@ -79,7 +83,7 @@ public class Park {
 
     @Override
     public String toString () {
-        return mName + "\n" + mStatus + "\n" + mLastUpdated + "\n" + mComment;
+        return mName + "\n" + mLastUpdated + "\n" + mComment;
     }
 
 
