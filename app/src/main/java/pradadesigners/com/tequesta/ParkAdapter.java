@@ -34,7 +34,7 @@ public class ParkAdapter extends ArrayAdapter<Park> {
         parkLabel.setText(park.getName());
 
         TextView parkStatusText = (TextView) convertView.findViewById(R.id.parkStatusText);
-        parkStatusText.setText(park.getLastUpdated() + " " + park.getComment());
+        parkStatusText.setText(park.getComment());
 
         ImageView parkStatusIcon = (ImageView) convertView.findViewById(R.id.statusIcon);
 
@@ -43,6 +43,9 @@ public class ParkAdapter extends ArrayAdapter<Park> {
 
         int parkIcon = park.isOpen() ? parkOpenIcon: parkClosedIcon;
         parkStatusIcon.setImageResource(parkIcon);
+
+        TextView lastUpdatedText = (TextView) convertView.findViewById(R.id.lastUpdated);
+        lastUpdatedText.setText(park.getLastUpdated());
 
         return convertView;
     }

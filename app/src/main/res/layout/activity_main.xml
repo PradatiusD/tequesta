@@ -14,7 +14,7 @@
 
 
     <Button
-        android:text="Check Status"
+        android:text="@string/refresh_button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

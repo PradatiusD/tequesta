@@ -58,7 +58,7 @@ public class Park implements Comparable<Park>  {
     }
 
     public String getName() {
-        return mName;
+        return mName.replace("Park ","");
     }
 
     public void setName(String name) {

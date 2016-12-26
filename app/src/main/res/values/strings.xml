@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Tequesta</string>
     <string name="park_website_url">http://www.westonfl.org/Departments/ParksAndRecreation/ParksStatus.aspx</string>
+    <string name="refresh_button_text">Check Status</string>
 </resources>

@@ -5,22 +5,42 @@
                 android:padding="10dp"
     >
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/statusIcon"
-        android:layout_centerVertical="true">
-    </ImageView>
+        android:layout_height="match_parent"
+        android:id="@+id/leftSide">
+
+        <ImageView
+            android:id="@+id/statusIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_centerHorizontal="true"
+            >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/lastUpdated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@id/statusIcon"
+            android:layout_centerHorizontal="true"
+            >
+        </TextView>
+
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/parkName"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:textSize="16dip"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/colorWhite"
-        android:layout_toRightOf="@id/statusIcon"
+        android:layout_toEndOf="@id/leftSide"
         android:paddingLeft="10dp"
         >
     </TextView>
@@ -29,11 +49,11 @@
         android:id="@+id/parkStatusText"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:textSize="12dip"
+        android:textSize="12sp"
         android:textColor="@color/colorWhite"
         android:layout_below="@id/parkName"
-        android:layout_toRightOf="@id/statusIcon"
-        android:paddingLeft="10dp"
+        android:layout_toEndOf="@id/leftSide"
+        android:paddingStart="10dp"
         >
     </TextView>
 
