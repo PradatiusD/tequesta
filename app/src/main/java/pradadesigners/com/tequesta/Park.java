@@ -40,6 +40,8 @@ public class Park implements Comparable<Park>  {
                 match = match.replace(" align=\"center\" width=\"125\">","");
                 match = match.replaceAll("\\s{2,}","");
                 match = match.replace("<br />",": ");
+                if (match.contains("!"))
+                    match = match.replace(":","");
                 mComment = match;
             }
         }

@@ -1,6 +1,8 @@
 package pradadesigners.com.tequesta;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +40,11 @@ public class ParkAdapter extends ArrayAdapter<Park> {
 
         ImageView parkStatusIcon = (ImageView) convertView.findViewById(R.id.statusIcon);
 
-        int parkOpenIcon   = android.R.drawable.ic_media_play;
-        int parkClosedIcon = android.R.drawable.ic_dialog_alert;
+        Drawable parkOpenIcon   = ContextCompat.getDrawable(getContext(), R.drawable.ic_insert_emoticon_white_36dp);
+        Drawable parkClosedIcon = ContextCompat.getDrawable(getContext(), R.drawable.ic_cancel_white_36dp);
 
-        int parkIcon = park.isOpen() ? parkOpenIcon: parkClosedIcon;
-        parkStatusIcon.setImageResource(parkIcon);
+        Drawable parkIcon = park.isOpen() ? parkOpenIcon: parkClosedIcon;
+        parkStatusIcon.setImageDrawable(parkIcon);
 
         TextView lastUpdatedText = (TextView) convertView.findViewById(R.id.lastUpdated);
         lastUpdatedText.setText(park.getLastUpdated());
