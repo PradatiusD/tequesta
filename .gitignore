@@ -7,3 +7,5 @@
 /build
 /captures
 .externalNativeBuild
+license_key.jks
+app/app-release.apk
