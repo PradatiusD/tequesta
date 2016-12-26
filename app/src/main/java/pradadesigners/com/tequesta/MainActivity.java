@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -96,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
                     Park park = new Park(match);
                     parks.add(park);
                 }
+
+                Collections.sort(parks);
 
                 final ArrayAdapter<Park> adapter = new ParkAdapter(activity, parks);
 

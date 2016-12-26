@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * Created by dprada on 12/25/16.
  */
 
-public class Park {
+public class Park implements Comparable<Park>  {
 
     private String mStatus;
     private String mName;
@@ -84,6 +84,11 @@ public class Park {
     @Override
     public String toString () {
         return mName + "\n" + mLastUpdated + "\n" + mComment;
+    }
+
+    @Override
+    public int compareTo (Park other) {
+        return mName.compareTo(other.getName());
     }
 
 
