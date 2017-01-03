@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Tequesta</string>
     <string name="park_website_url">http://www.westonfl.org/Departments/ParksAndRecreation/ParksStatus.aspx</string>
-    <string name="refresh_button_text">Check Park Status</string>
+    <string name="refresh_button_text">Re-check Park Status &amp; Weather</string>
+    <string name="error_title">Oops! Sorry</string>
+    <string name="error_message">There was an error, please try again</string>
+    <string name="error_ok_button_text">OK</string>
+    <string name="network_unavailable_message">Network is unavailable</string>
+    <string name="city_label">Weston, FL</string>
 </resources>
