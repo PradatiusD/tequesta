@@ -9,3 +9,4 @@
 .externalNativeBuild
 license_key.jks
 app/app-release.apk
+app/google-services.json

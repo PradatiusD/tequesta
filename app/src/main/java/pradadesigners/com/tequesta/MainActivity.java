@@ -17,6 +17,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,15 +38,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/*
-        mRefreshImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                getForecast(latitude, longitude);
-            }
-        });
- */
-
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -59,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.iconImageView) ImageView mIconImageView;
 
     private CurrentWeather mCurrentWeather;
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +65,19 @@ public class MainActivity extends AppCompatActivity {
         final double latitude  = 26.1003654;
         final double longitude = -80.3997748;
 
+        AnalyticsApplication application = (AnalyticsApplication) getApplicationContext();
+        mTracker = application.getDefaultTracker();
+
         getForecast(latitude, longitude);
         requestParkSiteHTML();
+        sendScreenHit();
 
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 requestParkSiteHTML();
                 getForecast(latitude, longitude);
+                sendScreenHit();
             }
         });
     }
@@ -256,5 +256,12 @@ public class MainActivity extends AppCompatActivity {
     private void alertUserAboutError() {
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getFragmentManager(), "error_dialog");
+    }
+
+    private void sendScreenHit () {
+
+        Log.i(TAG, "Setting analytic page hit");
+        mTracker.setScreenName("PageView~");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 }
